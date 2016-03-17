@@ -1,0 +1,24 @@
+//
+//  DGProjectDemoPrefixHeader.pch
+//  DGProjectDemo
+//
+//  Created by Gavin on 16/3/17.
+//  Copyright © 2016年 com.tryingx. All rights reserved.
+//
+
+#ifndef DGProjectDemoPrefixHeader_pch
+#define DGProjectDemoPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/** DGDEBUG Print | M:method, L:line, C:content*/
+#ifndef DGLog
+#ifdef DEBUG
+#define DGLog(FORMAT, ...) fprintf(stderr,"M:%s|L:%d|C->%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
+#else
+#define DGLog(FORMAT, ...)
+#endif
+#endif
+
+#endif /* DGProjectDemoPrefixHeader_pch */
