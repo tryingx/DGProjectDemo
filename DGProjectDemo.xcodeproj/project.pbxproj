@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860622B21C9C1EAC003C43F8 /* UploadFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 860622B11C9C1EAC003C43F8 /* UploadFileModel.m */; };
 		86362F091C9ACF1800394B81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86362F081C9ACF1800394B81 /* main.m */; };
 		86362F121C9ACF1800394B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86362F101C9ACF1800394B81 /* Main.storyboard */; };
 		86362F151C9ACF1800394B81 /* DGProjectDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86362F131C9ACF1800394B81 /* DGProjectDemo.xcdatamodeld */; };
@@ -22,6 +23,12 @@
 		86362F631C9AF00700394B81 /* DGMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86362F611C9AF00700394B81 /* DGMainViewController.xib */; };
 		86362F671C9AF01F00394B81 /* DGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86362F651C9AF01F00394B81 /* DGNavigationController.m */; };
 		86362F681C9AF01F00394B81 /* DGNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86362F661C9AF01F00394B81 /* DGNavigationController.xib */; };
+		8638DD451C9BE55C000D3F53 /* DGHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8638DD431C9BE55C000D3F53 /* DGHomeController.m */; };
+		8638DD461C9BE55C000D3F53 /* DGHomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8638DD441C9BE55C000D3F53 /* DGHomeController.xib */; };
+		8638DD4A1C9BE7E9000D3F53 /* DGMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8638DD481C9BE7E9000D3F53 /* DGMineController.m */; };
+		8638DD4B1C9BE7E9000D3F53 /* DGMineController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8638DD491C9BE7E9000D3F53 /* DGMineController.xib */; };
+		8638DD551C9BF0EA000D3F53 /* AFNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8638DD541C9BF0EA000D3F53 /* AFNetworkManager.m */; };
+		DA5B00B85D5B46F19614E1AA /* libPods-DGProjectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B1B098579C0BC2AAA9ABEE /* libPods-DGProjectDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31B1B098579C0BC2AAA9ABEE /* libPods-DGProjectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DGProjectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		860622B01C9C1EAC003C43F8 /* UploadFileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFileModel.h; sourceTree = "<group>"; };
+		860622B11C9C1EAC003C43F8 /* UploadFileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFileModel.m; sourceTree = "<group>"; };
 		86362F041C9ACF1800394B81 /* DGProjectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DGProjectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86362F081C9ACF1800394B81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		86362F111C9ACF1800394B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +78,16 @@
 		86362F651C9AF01F00394B81 /* DGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGNavigationController.m; sourceTree = "<group>"; };
 		86362F661C9AF01F00394B81 /* DGNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DGNavigationController.xib; sourceTree = "<group>"; };
 		86362F691C9AF0B900394B81 /* DGProjectDemoPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGProjectDemoPrefixHeader.pch; sourceTree = "<group>"; };
+		8638DD421C9BE55C000D3F53 /* DGHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGHomeController.h; sourceTree = "<group>"; };
+		8638DD431C9BE55C000D3F53 /* DGHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGHomeController.m; sourceTree = "<group>"; };
+		8638DD441C9BE55C000D3F53 /* DGHomeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DGHomeController.xib; sourceTree = "<group>"; };
+		8638DD471C9BE7E9000D3F53 /* DGMineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGMineController.h; sourceTree = "<group>"; };
+		8638DD481C9BE7E9000D3F53 /* DGMineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGMineController.m; sourceTree = "<group>"; };
+		8638DD491C9BE7E9000D3F53 /* DGMineController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DGMineController.xib; sourceTree = "<group>"; };
+		8638DD531C9BF0EA000D3F53 /* AFNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkManager.h; sourceTree = "<group>"; };
+		8638DD541C9BF0EA000D3F53 /* AFNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkManager.m; sourceTree = "<group>"; };
+		B0C7D744DC7E6EC2D467E467 /* Pods-DGProjectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DGProjectDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DGProjectDemo/Pods-DGProjectDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		D7A1A1E1E0601DD801CDDB8B /* Pods-DGProjectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DGProjectDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DGProjectDemo/Pods-DGProjectDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5B00B85D5B46F19614E1AA /* libPods-DGProjectDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +116,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53EED54CAC773C7F252B03BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0C7D744DC7E6EC2D467E467 /* Pods-DGProjectDemo.debug.xcconfig */,
+				D7A1A1E1E0601DD801CDDB8B /* Pods-DGProjectDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		860622AF1C9C1EAC003C43F8 /* UploadFileModel */ = {
+			isa = PBXGroup;
+			children = (
+				860622B01C9C1EAC003C43F8 /* UploadFileModel.h */,
+				860622B11C9C1EAC003C43F8 /* UploadFileModel.m */,
+			);
+			path = UploadFileModel;
+			sourceTree = "<group>";
+		};
 		86362EFB1C9ACF1800394B81 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +141,8 @@
 				86362F231C9ACF1800394B81 /* DGProjectDemoTests */,
 				86362F2E1C9ACF1800394B81 /* DGProjectDemoUITests */,
 				86362F051C9ACF1800394B81 /* Products */,
+				53EED54CAC773C7F252B03BE /* Pods */,
+				EE0AD7507D68EF734E2A49C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +239,9 @@
 		86362F411C9AD20300394B81 /* DGHomeController */ = {
 			isa = PBXGroup;
 			children = (
+				8638DD421C9BE55C000D3F53 /* DGHomeController.h */,
+				8638DD431C9BE55C000D3F53 /* DGHomeController.m */,
+				8638DD441C9BE55C000D3F53 /* DGHomeController.xib */,
 			);
 			path = DGHomeController;
 			sourceTree = "<group>";
@@ -229,6 +273,9 @@
 		86362F451C9AD20300394B81 /* DGMineController */ = {
 			isa = PBXGroup;
 			children = (
+				8638DD471C9BE7E9000D3F53 /* DGMineController.h */,
+				8638DD481C9BE7E9000D3F53 /* DGMineController.m */,
+				8638DD491C9BE7E9000D3F53 /* DGMineController.xib */,
 			);
 			path = DGMineController;
 			sourceTree = "<group>";
@@ -259,11 +306,11 @@
 			children = (
 				86362F4A1C9AD20300394B81 /* AppDelegate.h */,
 				86362F4B1C9AD20300394B81 /* AppDelegate.m */,
-				86362F4C1C9AD20300394B81 /* DGBaseViewController */,
 				86362F4D1C9AD20300394B81 /* DGCommonModels */,
 				86362F4E1C9AD20300394B81 /* DGCommonViews */,
 				86362F4F1C9AD20300394B81 /* DGMainViewController */,
 				86362F501C9AD20300394B81 /* DGNavigationController */,
+				86362F4C1C9AD20300394B81 /* DGBaseViewController */,
 			);
 			path = DGMain;
 			sourceTree = "<group>";
@@ -281,6 +328,7 @@
 		86362F4D1C9AD20300394B81 /* DGCommonModels */ = {
 			isa = PBXGroup;
 			children = (
+				860622AF1C9C1EAC003C43F8 /* UploadFileModel */,
 			);
 			path = DGCommonModels;
 			sourceTree = "<group>";
@@ -315,6 +363,7 @@
 		86362F511C9AD20300394B81 /* DGTools */ = {
 			isa = PBXGroup;
 			children = (
+				8638DD521C9BF0D2000D3F53 /* AFNetworkManager */,
 			);
 			path = DGTools;
 			sourceTree = "<group>";
@@ -359,6 +408,23 @@
 			path = DGVedios;
 			sourceTree = "<group>";
 		};
+		8638DD521C9BF0D2000D3F53 /* AFNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				8638DD531C9BF0EA000D3F53 /* AFNetworkManager.h */,
+				8638DD541C9BF0EA000D3F53 /* AFNetworkManager.m */,
+			);
+			path = AFNetworkManager;
+			sourceTree = "<group>";
+		};
+		EE0AD7507D68EF734E2A49C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31B1B098579C0BC2AAA9ABEE /* libPods-DGProjectDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,9 +432,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86362F341C9ACF1800394B81 /* Build configuration list for PBXNativeTarget "DGProjectDemo" */;
 			buildPhases = (
+				C21166A54EB28779CE64D7C5 /* Check Pods Manifest.lock */,
 				86362F001C9ACF1800394B81 /* Sources */,
 				86362F011C9ACF1800394B81 /* Frameworks */,
 				86362F021C9ACF1800394B81 /* Resources */,
+				2EB42EA40A55530F3654CE0F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -466,7 +534,9 @@
 				86362F5E1C9AEFE600394B81 /* DGBaseViewController.xib in Resources */,
 				86362F1A1C9ACF1800394B81 /* LaunchScreen.storyboard in Resources */,
 				86362F631C9AF00700394B81 /* DGMainViewController.xib in Resources */,
+				8638DD4B1C9BE7E9000D3F53 /* DGMineController.xib in Resources */,
 				86362F171C9ACF1800394B81 /* Assets.xcassets in Resources */,
+				8638DD461C9BE55C000D3F53 /* DGHomeController.xib in Resources */,
 				86362F591C9AD21000394B81 /* controllers.plist in Resources */,
 				86362F121C9ACF1800394B81 /* Main.storyboard in Resources */,
 			);
@@ -488,15 +558,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2EB42EA40A55530F3654CE0F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DGProjectDemo/Pods-DGProjectDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C21166A54EB28779CE64D7C5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		86362F001C9ACF1800394B81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8638DD451C9BE55C000D3F53 /* DGHomeController.m in Sources */,
 				86362F151C9ACF1800394B81 /* DGProjectDemo.xcdatamodeld in Sources */,
 				86362F091C9ACF1800394B81 /* main.m in Sources */,
 				86362F5D1C9AEFE600394B81 /* DGBaseViewController.m in Sources */,
+				860622B21C9C1EAC003C43F8 /* UploadFileModel.m in Sources */,
 				86362F621C9AF00700394B81 /* DGMainViewController.m in Sources */,
+				8638DD551C9BF0EA000D3F53 /* AFNetworkManager.m in Sources */,
+				8638DD4A1C9BE7E9000D3F53 /* DGMineController.m in Sources */,
 				86362F671C9AF01F00394B81 /* DGNavigationController.m in Sources */,
 				86362F521C9AD20300394B81 /* AppDelegate.m in Sources */,
 			);
@@ -635,6 +742,7 @@
 		};
 		86362F351C9ACF1800394B81 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0C7D744DC7E6EC2D467E467 /* Pods-DGProjectDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = DGProjectDemo/DGProjectDemoPrefixHeader.pch;
@@ -647,6 +755,7 @@
 		};
 		86362F361C9ACF1800394B81 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7A1A1E1E0601DD801CDDB8B /* Pods-DGProjectDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = DGProjectDemo/DGProjectDemoPrefixHeader.pch;
