@@ -93,32 +93,36 @@ void requestPostBody(NSString *requestUrl,NSDictionary *parameter,requestBody bo
 }
 
 #pragma mark - 下载文件
-void downloadFileRequestPost(NSString *requestUrl,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock)
+void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock)
 {
     
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestError != errorBlock)
-    {
-        r->block_requestError = errorBlock;
-    }
     if (r->block_requestSuccessful != successfulBlock)
     {
         r->block_requestSuccessful = successfulBlock;
     }
+    if (r->block_requestError != errorBlock)
+    {
+        r->block_requestError = errorBlock;
+    }
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     session.responseSerializer = [AFCompoundResponseSerializer serializer];
-    [session POST:requestUrl parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
-        r->block_requestProgress(downloadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //此处待补充（下载接收文件数据流）
-//        id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//        r->block_requestSuccessful(dict);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        r->block_requestError(error);
-    }];
     
+    NSMutableURLRequest *downloadRequest = [session.requestSerializer requestWithMethod:@"POST" URLString:requestUrl parameters:parameter error:nil];
+    
+    [session downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
+        if (r->block_requestProgress) {
+            r->block_requestProgress(downloadProgress.completedUnitCount, downloadProgress.totalUnitCount);
+        }
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        return [NSURL URLWithString:saveToPath];
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        if (r->block_requestSuccessful) {
+            r->block_requestSuccessful(filePath.absoluteString);
+        }
+    }];
 }
 
 #pragma mark - 上传文件
@@ -147,7 +151,7 @@ void updateFileWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *upl
                                     name:uploadParam.name
                                 fileName:uploadParam.fileName mimeType:uploadParam.fileType];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        r->block_requestProgress(uploadProgress);
+        r->block_requestProgress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         r->block_requestSuccessful(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -183,7 +187,7 @@ void updateOneImgWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *u
                                     name:uploadParam.name
                                 fileName:uploadParam.fileName mimeType:uploadParam.fileType];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        r->block_requestProgress(uploadProgress);
+        r->block_requestProgress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         r->block_requestSuccessful(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -220,7 +224,7 @@ void updateMoreImgWithURL(NSString*url,NSDictionary*paramsDict,NSMutableArray*im
                                     fileName:uploadParam.fileName mimeType:uploadParam.fileType];
         }
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        r->block_requestProgress(uploadProgress);
+        r->block_requestProgress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         r->block_requestSuccessful(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

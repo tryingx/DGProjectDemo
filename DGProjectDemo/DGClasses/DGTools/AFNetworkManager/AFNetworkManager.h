@@ -14,7 +14,7 @@
 
 typedef void(^requestBody) (id<AFMultipartFormData> formData);
 
-typedef void(^requestProgress) (NSProgress *downloadProgress);
+typedef void(^requestProgress) (int64_t bytesRead, int64_t totalBytesRead);
 
 typedef void(^requestSuccessful) (id dict);
 typedef void(^requestError) (NSError *error);
@@ -50,6 +50,16 @@ void requestGET(NSString *requestUrl,NSDictionary *parameter,requestSuccessful s
  */
 void requestPost(NSString *requestUrl,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock);
 
+/**
+ *  下载文件
+ *
+ *  @param requestUrl      请求地址URL
+ *  @param saveToPath      保存文件地址
+ *  @param parameter       请求参数
+ *  @param successfulBlock 下载文件成功回调Block
+ *  @param errorBlock      下载文件失败回调Block
+ */
+void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock);
 /**
  *  上传文件
  *
