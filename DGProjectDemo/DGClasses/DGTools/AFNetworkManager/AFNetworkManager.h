@@ -14,20 +14,20 @@
 
 typedef void(^requestBody) (id<AFMultipartFormData> formData);
 
-typedef void(^requestProgress) (int64_t bytesRead, int64_t totalBytesRead);
+typedef void(^requestProgress) (int64_t bytes, int64_t totalBytes);
 
-typedef void(^requestSuccessful) (id dict);
-typedef void(^requestError) (NSError *error);
+typedef void(^responseSuccessful) (id response);
+typedef void(^responseError) (NSError *error);
 
 @interface AFNetworkManager : NSObject
 {
 @public
-    requestBody block_requestBody;
+    requestBody         block_requestBody;
     
-    requestProgress block_requestProgress;
+    requestProgress     block_requestProgress;
     
-    requestSuccessful block_requestSuccessful;
-    requestError block_requestError;
+    responseSuccessful  block_responseSuccessful;
+    responseError       block_responseError;
 }
 
 /**
@@ -38,7 +38,7 @@ typedef void(^requestError) (NSError *error);
  *  @param successfulBlock 请求成功回调Block
  *  @param errorBlock      请求Error回调Block
  */
-void requestGET(NSString *requestUrl,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock);
+void requestGET(NSString *requestUrl,NSDictionary *parameter,responseSuccessful successfulBlock,responseError errorBlock);
 
 /**
  *  Post 请求
@@ -48,7 +48,17 @@ void requestGET(NSString *requestUrl,NSDictionary *parameter,requestSuccessful s
  *  @param successfulBlock 请求成功回调Block
  *  @param errorBlock      请求Error回调Block
  */
-void requestPost(NSString *requestUrl,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock);
+void requestPost(NSString *requestUrl,NSDictionary *parameter,responseSuccessful successfulBlock,responseError errorBlock);
+/**
+ *  Post 请求
+ *
+ *  @param requestUrl      请求地址URL
+ *  @param parameter       请求参数
+ *  @param bodyBlock       Body
+ *  @param successfulBlock 请求成功回调Block
+ *  @param errorBlock      请求Error回调Block
+ */
+void requestPostBody(NSString *requestUrl,NSDictionary *parameter,requestBody bodyBlock,responseSuccessful successfulBlock,responseError errorBlock);
 
 /**
  *  下载文件
@@ -59,7 +69,7 @@ void requestPost(NSString *requestUrl,NSDictionary *parameter,requestSuccessful 
  *  @param successfulBlock 下载文件成功回调Block
  *  @param errorBlock      下载文件失败回调Block
  */
-void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock);
+void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDictionary *parameter,responseSuccessful successfulBlock,responseError errorBlock);
 /**
  *  上传文件
  *
@@ -69,7 +79,7 @@ void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDiction
  *  @param successfulBlock 上传成功回调Block
  *  @param errorBlock      上传Error回调Block
  */
-void updateFileWithURL(NSString *requestUrl,NSDictionary *paramsDict,UploadFileModel *uploadParam,requestSuccessful successfulBlock,requestError errorBlock);
+void updateFileWithURL(NSString *requestUrl,NSDictionary *paramsDict,UploadFileModel *uploadParam,responseSuccessful successfulBlock,responseError errorBlock);
     
 /**
  *  传送单张图片
@@ -80,7 +90,7 @@ void updateFileWithURL(NSString *requestUrl,NSDictionary *paramsDict,UploadFileM
  *  @param successfulBlock 上传成功回调Block
  *  @param errorBlock      上传Error回调Block
  */
-void updateOneImgWithURL(NSString *requestUrl,NSDictionary *paramsDict,UploadFileModel *uploadParam,requestSuccessful successfulBlock,requestError errorBlock);
+void updateOneImgWithURL(NSString *requestUrl,NSDictionary *paramsDict,UploadFileModel *uploadParam,responseSuccessful successfulBlock,responseError errorBlock);
 
 /**
  *  传送多张图片
@@ -91,6 +101,6 @@ void updateOneImgWithURL(NSString *requestUrl,NSDictionary *paramsDict,UploadFil
  *  @param successfulBlock 上传成功回调Block
  *  @param errorBlock      上传Error回调Block
  */
-void updateMoreImgWithURL(NSString *requestUrl,NSDictionary *paramsDict,NSMutableArray *imgDataArr,UploadFileModel *uploadParam,requestSuccessful successfulBlock,requestError errorBlock);
+void updateMoreImgWithURL(NSString *requestUrl,NSDictionary *paramsDict,NSMutableArray *imgDataArr,UploadFileModel *uploadParam,responseSuccessful successfulBlock,responseError errorBlock);
 
 @end

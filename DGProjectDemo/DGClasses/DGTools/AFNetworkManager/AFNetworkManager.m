@@ -10,17 +10,18 @@
 
 @implementation AFNetworkManager
 
-void requestGET(NSString *requestUrl,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock)
+#pragma mark - GET Method
+void requestGET(NSString *requestUrl,NSDictionary *parameter,responseSuccessful successfulBlock,responseError errorBlock)
 {
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestError != errorBlock)
+    if (r->block_responseSuccessful != successfulBlock)
     {
-        r->block_requestError = errorBlock;
+        r->block_responseSuccessful = successfulBlock;
     }
-    if (r->block_requestSuccessful != successfulBlock)
+    if (r->block_responseError != errorBlock)
     {
-        r->block_requestSuccessful = successfulBlock;
+        r->block_responseError = errorBlock;
     }
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
@@ -29,24 +30,24 @@ void requestGET(NSString *requestUrl,NSDictionary *parameter,requestSuccessful s
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        r->block_requestSuccessful(dict);
+        r->block_responseSuccessful(dict);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        r->block_requestError(error);
+        r->block_responseError(error);
     }];
 }
 
-
-void requestPost(NSString *requestUrl,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock)
+#pragma mark - POST Method
+void requestPost(NSString *requestUrl,NSDictionary *parameter,responseSuccessful successfulBlock,responseError errorBlock)
 {
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestError != errorBlock)
+    if (r->block_responseSuccessful != successfulBlock)
     {
-        r->block_requestError = errorBlock;
+        r->block_responseSuccessful = successfulBlock;
     }
-    if (r->block_requestSuccessful != successfulBlock)
+    if (r->block_responseError != errorBlock)
     {
-        r->block_requestSuccessful = successfulBlock;
+        r->block_responseError = errorBlock;
     }
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
@@ -55,25 +56,25 @@ void requestPost(NSString *requestUrl,NSDictionary *parameter,requestSuccessful 
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        r->block_requestSuccessful(dict);
+        r->block_responseSuccessful(dict);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        r->block_requestError(error);
+        r->block_responseError(error);
     }];
     
 }
 
-void requestPostBody(NSString *requestUrl,NSDictionary *parameter,requestBody bodyBlock,requestSuccessful successfulBlock,requestError errorBlock)
+void requestPostBody(NSString *requestUrl,NSDictionary *parameter,requestBody bodyBlock,responseSuccessful successfulBlock,responseError errorBlock)
 {
     
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestError != errorBlock)
+    if (r->block_responseSuccessful != successfulBlock)
     {
-        r->block_requestError = errorBlock;
+        r->block_responseSuccessful = successfulBlock;
     }
-    if (r->block_requestSuccessful != successfulBlock)
+    if (r->block_responseError != errorBlock)
     {
-        r->block_requestSuccessful = successfulBlock;
+        r->block_responseError = errorBlock;
     }
     
     r->block_requestBody = bodyBlock;
@@ -86,25 +87,25 @@ void requestPostBody(NSString *requestUrl,NSDictionary *parameter,requestBody bo
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        r->block_requestSuccessful(dict);
+        r->block_responseSuccessful(dict);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        r->block_requestError(error);
+        r->block_responseError(error);
     }];
 }
 
 #pragma mark - 下载文件
-void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDictionary *parameter,requestSuccessful successfulBlock,requestError errorBlock)
+void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDictionary *parameter,responseSuccessful successfulBlock,responseError errorBlock)
 {
     
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestSuccessful != successfulBlock)
+    if (r->block_responseSuccessful != successfulBlock)
     {
-        r->block_requestSuccessful = successfulBlock;
+        r->block_responseSuccessful = successfulBlock;
     }
-    if (r->block_requestError != errorBlock)
+    if (r->block_responseError != errorBlock)
     {
-        r->block_requestError = errorBlock;
+        r->block_responseError = errorBlock;
     }
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
@@ -119,24 +120,24 @@ void downloadFileRequestPost(NSString *requestUrl,NSString *saveToPath,NSDiction
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         return [NSURL URLWithString:saveToPath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        if (r->block_requestSuccessful) {
-            r->block_requestSuccessful(filePath.absoluteString);
+        if (r->block_responseSuccessful) {
+            r->block_responseSuccessful(filePath.absoluteString);
         }
     }];
 }
 
 #pragma mark - 上传文件
-void updateFileWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *uploadParam,requestSuccessful successfulBlock,requestError errorBlock){
+void updateFileWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *uploadParam,responseSuccessful successfulBlock,responseError errorBlock){
     
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestError != errorBlock)
+    if (r->block_responseSuccessful != successfulBlock)
     {
-        r->block_requestError = errorBlock;
+        r->block_responseSuccessful = successfulBlock;
     }
-    if (r->block_requestSuccessful != successfulBlock)
+    if (r->block_responseError != errorBlock)
     {
-        r->block_requestSuccessful = successfulBlock;
+        r->block_responseError = errorBlock;
     }
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
@@ -153,26 +154,26 @@ void updateFileWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *upl
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         r->block_requestProgress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        r->block_requestSuccessful(responseObject);
+        r->block_responseSuccessful(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        r->block_requestError(error);
+        r->block_responseError(error);
     }];
     
 }
 
 
 #pragma mark - 上传一张图片
-void updateOneImgWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *uploadParam,requestSuccessful successfulBlock,requestError errorBlock){
+void updateOneImgWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *uploadParam,responseSuccessful successfulBlock,responseError errorBlock){
     
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestError != errorBlock)
+    if (r->block_responseSuccessful != successfulBlock)
     {
-        r->block_requestError = errorBlock;
+        r->block_responseSuccessful = successfulBlock;
     }
-    if (r->block_requestSuccessful != successfulBlock)
+    if (r->block_responseError != errorBlock)
     {
-        r->block_requestSuccessful = successfulBlock;
+        r->block_responseError = errorBlock;
     }
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
@@ -189,25 +190,25 @@ void updateOneImgWithURL(NSString*url,NSDictionary*paramsDict,UploadFileModel *u
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         r->block_requestProgress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        r->block_requestSuccessful(responseObject);
+        r->block_responseSuccessful(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        r->block_requestError(error);
+        r->block_responseError(error);
     }];
     
 }
 
 #pragma mark - 上传多张图片
-void updateMoreImgWithURL(NSString*url,NSDictionary*paramsDict,NSMutableArray*imgDataArr,UploadFileModel*uploadParam,requestSuccessful successfulBlock,requestError errorBlock){
+void updateMoreImgWithURL(NSString*url,NSDictionary*paramsDict,NSMutableArray*imgDataArr,UploadFileModel*uploadParam,responseSuccessful successfulBlock,responseError errorBlock){
     
     AFNetworkManager *r = [AFNetworkManager new];
     
-    if (r->block_requestError != errorBlock)
+    if (r->block_responseSuccessful != successfulBlock)
     {
-        r->block_requestError = errorBlock;
+        r->block_responseSuccessful = successfulBlock;
     }
-    if (r->block_requestSuccessful != successfulBlock)
+    if (r->block_responseError != errorBlock)
     {
-        r->block_requestSuccessful = successfulBlock;
+        r->block_responseError = errorBlock;
     }
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
@@ -226,9 +227,9 @@ void updateMoreImgWithURL(NSString*url,NSDictionary*paramsDict,NSMutableArray*im
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         r->block_requestProgress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        r->block_requestSuccessful(responseObject);
+        r->block_responseSuccessful(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        r->block_requestError(error);
+        r->block_responseError(error);
     }];
     
 }
