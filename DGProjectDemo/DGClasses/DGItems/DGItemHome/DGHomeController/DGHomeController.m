@@ -14,15 +14,22 @@
 
 @implementation DGHomeController
 
+#pragma mark - Life Circle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = @"Home";
+    [self loadDefaultSetting];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/** Load the default UI elements And prepare some datas needed. */
+- (void)loadDefaultSetting {
+    self.title = @"home";
+    self.view.backgroundColor = DGColorRandom;
+}
+
+- (void)dealloc {
+    // RELEASE OBJECTS TO FREE THE MEMORIES HERE!
+    __unsafe_unretained typeof(self) selfUnsafe = self;
+    DGLog(@"🌜A instance of type %@ was DESTROYED!🌛", NSStringFromClass([selfUnsafe class]));
 }
 
 /*

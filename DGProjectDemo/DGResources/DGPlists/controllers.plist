@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>controller</key>
-		<string>QLHomeViewController</string>
+		<string>DGHomeController</string>
 		<key>tab_icon</key>
 		<string></string>
 		<key>tab_icon_sl</key>
@@ -14,7 +14,7 @@
 	</dict>
 	<dict>
 		<key>controller</key>
-		<string>QLMineViewController</string>
+		<string>DGMineController</string>
 		<key>tab_icon</key>
 		<string></string>
 		<key>tab_icon_sl</key>

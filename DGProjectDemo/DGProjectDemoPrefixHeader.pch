@@ -21,4 +21,14 @@
 #endif
 #endif
 
+/** Color Related */
+#define DGColorWithRGB(redValue, greenValue, blueValue) ([UIColor colorWithRed:((redValue)/255.0) green:((greenValue)/255.0) blue:((blueValue)/255.0) alpha:1])
+#define DGColorRandom DGColorWithRGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#define DGColorFromHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+/** DGScreenSize */
+#define DGScreenSize [[UIScreen mainScreen] bounds].size
+#define DGScreenWidth DGScreenSize.width
+#define DGScreenHeight DGScreenSize.height
+
 #endif /* DGProjectDemoPrefixHeader_pch */

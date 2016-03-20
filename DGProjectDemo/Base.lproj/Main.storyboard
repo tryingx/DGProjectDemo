@@ -80,7 +80,6 @@
         <!--Main View Controller-->
         <scene sceneID="QK6-hg-KbG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="moh-WP-gIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="okT-cB-XJY" customClass="DGMainViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="zAV-tU-sSy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -92,6 +91,7 @@
                         <segue destination="w2d-XE-KQW" kind="relationship" relationship="viewControllers" id="vBK-mJ-vi3"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moh-WP-gIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-479" y="-998"/>
         </scene>
