@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "DGMainViewController.h"
+#import "DGNewFeatureController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 1.创建窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    // 2.设置根控制器
+    NSString *versionKey = @"CFBundleVersion";
+    // 上一次的使用版本（存储在沙盒中的版本号）
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:versionKey];
+    // 当前app的版本号（从Info.plist中获得）
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[versionKey];
+    if ([lastVersion isEqualToString:currentVersion]) {
+        self.window.rootViewController = [[DGMainViewController alloc] init];
+    } else {
+        self.window.rootViewController = [[DGNewFeatureController alloc] init];
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:versionKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    // 3.显示窗口
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

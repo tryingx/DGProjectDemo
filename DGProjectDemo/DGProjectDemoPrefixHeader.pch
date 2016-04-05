@@ -31,4 +31,6 @@
 #define DGScreenWidth DGScreenSize.width
 #define DGScreenHeight DGScreenSize.height
 
+#import "UIView+Extension.h"
+
 #endif /* DGProjectDemoPrefixHeader_pch */
